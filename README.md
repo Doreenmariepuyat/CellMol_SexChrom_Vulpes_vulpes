@@ -175,7 +175,7 @@ I used the VulVul3 reference assembly, accession GCF_048418805.1 (GenBank GCA_04
 - Autosomes (A): NC_132780.1 to NC_132787.1 (chromosomes 1 to 8).
 - X chromosome: NC_132796.1.
 
-I checked the identities in the NCBI sequence report for GCF_048418805.1. It lists each numbered chromosome next to its RefSeq name, and the row named X is NC_132796.1. I also confirmed that the same names appear in the `rname` column of `chromosome_coverage.tsv`. Unplaced scaffolds (NW_), mitochondrial DNA, and alternate haplotypes were not used.
+I checked the identities in the NCBI sequence report for GCF_048418805.1. It lists each numbered chromosome next to its RefSeq name, and the row named X is NC_132796.1. I also confirmed that the same names appear in the rname column of chromosome_coverage.tsv. Unplaced scaffolds (NW_), mitochondrial DNA, and alternate haplotypes were not used.
 
 ### 4. What are the median autosomal depth, X:A or Z:A ratio, and inferred sex-chromosome complement?
 - Median autosomal depth: 5.809
