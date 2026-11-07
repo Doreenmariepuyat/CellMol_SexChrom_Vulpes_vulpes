@@ -18,36 +18,38 @@
 | Sex of WGS donor | Female (BioSample metadata) |
 | Same donor? | No (assembly isolate BD-2025, reads isolate RM_S13-1169) |
 
-**Evidence for XX/XY:** [one sentence plus a citation to a paper or database page stating the red fox has XX/XY sex chromosomes]. The VulVul3 sequence report identifies X as chromosome NC_132796.1.
 
-![Class sheet](images/A1_class_sheet.png)
 <img width="1335" height="555" alt="image" src="https://github.com/user-attachments/assets/8ef4d840-1e78-4d00-9e5a-446c2e5af08b" />
 
-![Sequence report](images/A3_sequence_report.png)
 <img width="604" height="523" alt="image" src="https://github.com/user-attachments/assets/83edd1a1-f8af-4dbf-bdbc-d06429cbbdf3" />
 
-![BioSample](images/A5_biosample.png)
+<img width="1195" height="637" alt="image" src="https://github.com/user-attachments/assets/31460f4a-40fd-4a32-a5fe-c059843d34c4" />
+
 
 ## Part B. Galaxy workflow
 
-Galaxy history: [paste shared history link]
-
 1. Created history `Sex_Dosage_Vulpes_vulpes` at usegalaxy.org.
 2. Uploaded the reference by URL (type fasta): `https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/048/418/805/GCF_048418805.1_VulVul3/GCF_048418805.1_VulVul3_genomic.fna.gz`
-3. Downloaded SRR30752830 with **Faster Download and Extract Reads in FASTQ** (paired, fastqsanger.gz).
-4. **FastQC** v0.12.1: 51,410,667 read pairs, 0 poor-quality reads, read length 151, per-base quality green. No trimming was needed.
-5. **Map with BWA-MEM** 0.7.19+galaxy1: reference from history (the same VulVul3 FASTA), paired collection, default settings.
-6. **Samtools sort** 2.0.8: sorted by coordinate.
-7. **Samtools coverage** 1.22+galaxy3: tabular output, minimum mapping quality 20, minimum base quality 20, no pooling (one individual).
+3. Downloaded SRR30752830 with Faster Download and Extract Reads in FASTQ (paired, fastqsanger.gz).
+4. FastQC v0.12.1: 51,410,667 read pairs, 0 poor-quality reads, read length 151, per-base quality green. No trimming was needed.
+5. Map with BWA-MEM 0.7.19+galaxy1: reference from history (the same VulVul3 FASTA), paired collection, default settings.
+6. Samtools sort 2.0.8: sorted by coordinate.
+7. Samtools coverage 1.22+galaxy3: tabular output, minimum mapping quality 20, minimum base quality 20, no pooling (one individual).
 8. Downloaded the output as `chromosome_coverage.tsv`.
 
-![Galaxy files](images/B1_fastq_files.png)
-![FastQC forward](images/B2_fastqc_forward.png)
-![FastQC reverse](images/B3_fastqc_reverse.png)
-![BWA-MEM](images/B4_bwa_settings.png)
-![Sorted BAM](images/B5_sorted_bam.png)
-![Coverage settings](images/B6_coverage_settings.png)
-![Coverage table](images/B7_coverage_table.png)
+<img width="799" height="644" alt="image" src="https://github.com/user-attachments/assets/d8e95c00-d171-41c9-b7b0-df792c0aab58" />
+
+<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/3d83a9c3-de75-44bb-aea1-f76f7fde2300" />
+
+<img width="1360" height="639" alt="image" src="https://github.com/user-attachments/assets/c2855fd4-8ae4-4537-8a56-0903f61d83be" />
+
+<img width="1361" height="638" alt="image" src="https://github.com/user-attachments/assets/9efd5a1b-fe88-4b5f-b7c3-fe670da184c2" />
+
+<img width="1363" height="642" alt="image" src="https://github.com/user-attachments/assets/abd01d8d-3cc5-4a34-bdae-bf06fe148b0f" />
+
+<img width="1366" height="638" alt="image" src="https://github.com/user-attachments/assets/6797b58e-ee80-4a03-90d8-087fe7de1742" />
+
+
 
 ## Part C. Chromosome groups
 
@@ -58,7 +60,7 @@ File: [`chromosome_groups.csv`](chromosome_groups.csv)
 | NC_132780.1 to NC_132787.1 | A | Chromosomes 1 to 8 in the NCBI sequence report (assembled molecules) |
 | NC_132796.1 | X | Labeled X in the NCBI sequence report (122,725,035 bp) |
 
-The names were copied from the `rname` column of `chromosome_coverage.tsv` and checked against the NCBI sequence report. Chromosomes 9 to 16 were not used, because at least five autosomes are required. Unplaced scaffolds (NW_...), mitochondrial DNA, and alternate haplotypes were excluded. No Y is annotated in this assembly.
+The names were copied from the rname column of chromosome_coverage.tsv and checked against the NCBI sequence report. Chromosomes 9 to 16 were not used, because at least five autosomes are required. Unplaced scaffolds (NW_...), mitochondrial DNA, and alternate haplotypes were excluded. No Y is annotated in this assembly.
 
 ## Part D. R analysis
 
@@ -159,14 +161,40 @@ cat(paste(summary, collapse = "\n"), "\n")]
 
 The X:A ratio of 0.944 is above the 0.80 cutoff and far from 0.5, so the WGS fox is XX-like. This agrees with the female sex recorded in BioSample SAMN43533643. Matching metadata is validation, not a replacement for the sequence evidence.
 
-## Answers to the six questions
+## Questions for the report
 
-1. **Species and evidence:** [your answer]
-2. **Accessions and donors:** [your answer]
-3. **Sequences used and how they were verified:** [your answer]
-4. **Median depth, X:A, complement:** Median autosomal depth 5.809, X:A 0.944, XX-like.
-5. **Agreement with recorded sex:** [your answer]
-6. **Why an assembly alone is insufficient:** An assembly is one consensus sequence. It does not show how many copies of each chromosome the sequenced individual carries. Only read depth from that individual's DNA shows the dosage.
+### 1. What species did you choose, and what evidence supports a diploid XX/XY or ZZ/ZWsystem?
+I chose the red fox (*Vulpes vulpes*). It is a diploid mammal with an **XX/XY** sex-determination system (females are XX, males are XY). Two pieces of evidence support this:
+- The VulVul3 assembly (GCF_048418805.1) sequence report lists chromosomes 1 to 16 and **X (NC_132796.1)**. This gives 16 autosomes plus X, consistent with a diploid fox.
+- The red fox karyotype is 2n = 34 (16 autosome pairs plus the sex chromosomes), with a large metacentric X and a small acrocentric Y in males (Demirbaş & Baydemir, 2014). A Y-chromosome study in this species also supports a male-heterogametic XY system (Rando et al., 2019).
+
+### 2. What are your assembly accession, WGS run, and both BioSample accessions? Are the donors the same?
+I used the VulVul3 reference assembly, accession GCF_048418805.1 (GenBank GCA_048418805.1), whose BioSample is SAMEA113398840 (isolate BD-2025). The whole-genome sequencing reads came from run SRR30752830 (experiment SRX26155532), which belongs to BioSample SAMN43533643 (isolate RM_S13-1169). The donors are not the same. The assembly comes from one fox and the reads from another, so my result describes only the fox that supplied the reads.
+
+### 3. Which sequences were used as autosomes and as X or Z? How did you verify their identities?
+- Autosomes (A): NC_132780.1 to NC_132787.1 (chromosomes 1 to 8).
+- X chromosome: NC_132796.1.
+
+I checked the identities in the NCBI sequence report for GCF_048418805.1. It lists each numbered chromosome next to its RefSeq name, and the row named X is NC_132796.1. I also confirmed that the same names appear in the `rname` column of `chromosome_coverage.tsv`. Unplaced scaffolds (NW_), mitochondrial DNA, and alternate haplotypes were not used.
+
+### 4. What are the median autosomal depth, X:A or Z:A ratio, and inferred sex-chromosome complement?
+- Median autosomal depth: 5.809
+- X:A ratio: 0.944
+- Inferred complement: XX-like
+
+The X:A ratio of 0.944 is above the 0.80 cutoff and far from the 0.5 expected for a single X.
+
+### 5.  Does your result agree with the recorded sex of the WGS donor, if reported? Explain any discrepancy or uncertainty.
+Yes, the result agrees. BioSample SAMN43533643 records the WGS fox as female, and the data show XX-like depth. This match is only validation. The call itself rests on the read-depth evidence.
+
+Sources of uncertainty:
+- The X ratio is slightly below 1.0, which can come from repeats, mapping bias, or pseudoautosomal regions.
+- Depth is only about 6x, so ratios are somewhat noisy.
+- No Y chromosome was used, so the call relies on the X:A ratio alone.
+- The script's cutoffs are teaching guidelines, not diagnostic thresholds.
+
+### 6. Why is a chromosome-level assembly alone insufficient for a reliable read-depth sex inference?
+An assembly is a single consensus sequence. It shows which chromosomes exist, but not how many copies of each one a particular animal carries. Chromosome length does not reveal the sex of the animal either. Only sequencing reads from one individual can show this: if the X has the same read depth as the autosomes, that animal has two copies (XX), and if it has about half, it has one copy (XY). The assembly donor may also be a different animal from the one that supplied the reads, as in this exercise.
 
 ## Limitations
 
@@ -182,6 +210,5 @@ The X:A ratio of 0.944 is above the 0.80 cutoff and far from 0.5, so the WGS fox
 - NCBI Datasets: https://www.ncbi.nlm.nih.gov/datasets/genome/
 - NCBI SRA: https://www.ncbi.nlm.nih.gov/sra
 - Galaxy: https://usegalaxy.org/u/doreenmariepuyat/h/sex-dosage-vulpes-vulpes
-- Samtools coverage: https://www.htslib.org/doc/samtools-coverage.html
 - Sex-chromosome coverage review: https://pmc.ncbi.nlm.nih.gov/articles/PMC6900093/
 - [your XX/XY source for the red fox]
