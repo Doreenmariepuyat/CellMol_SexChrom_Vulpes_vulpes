@@ -210,5 +210,5 @@ An assembly is a single consensus sequence. It shows which chromosomes exist, bu
 - NCBI Datasets: https://www.ncbi.nlm.nih.gov/datasets/genome/
 - NCBI SRA: https://www.ncbi.nlm.nih.gov/sra
 - Galaxy: https://usegalaxy.org/u/doreenmariepuyat/h/sex-dosage-vulpes-vulpes
-- - Demirbaş Y, Baydemir NA. (2014). Karyotype and presence of B-chromosomes in red fox from Central Anatolia. *Hacettepe Journal of Biology and Chemistry* 42(3): 383-386. https://hjbc.hacettepe.edu.tr/journal/volume-42/issue-3/karyotype-and-presence-of-b-chromosomes-in-red-fox-from-central-anatolia/index.html
+- Demirbaş Y, Baydemir NA. (2014). Karyotype and presence of B-chromosomes in red fox from Central Anatolia. *Hacettepe Journal of Biology and Chemistry* 42(3): 383-386. https://hjbc.hacettepe.edu.tr/journal/volume-42/issue-3/karyotype-and-presence-of-b-chromosomes-in-red-fox-from-central-anatolia/index.html
 - Rando HM, Wadlington WH, Johnson JL, Stutchman JL, Trut LN, Farré M, Kukekova AV. (2019). The red fox Y-chromosome in comparative context. *Genes* 10(6): 409. https://doi.org/10.3390/genes10060409
