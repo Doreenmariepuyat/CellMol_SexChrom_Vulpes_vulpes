@@ -159,7 +159,7 @@ cat(paste(summary, collapse = "\n"), "\n")]
 
 ![Depth figure](results/chromosome_depth.png)
 
-The X:A ratio of 0.944 is above the 0.80 cutoff and far from 0.5, so the WGS fox is XX-like. This agrees with the female sex recorded in BioSample SAMN43533643. Matching metadata is validation, not a replacement for the sequence evidence.
+The X:A ratio of 0.944 is above the 0.80 cutoff and far from 0.5, so the WGS fox is XX-like. This agrees with the female sex recorded in BioSample SAMN43533643. Matching metadata is validation, and is not a replacement for the sequence evidence.
 
 ## Questions for the report
 
